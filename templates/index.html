@@ -13,20 +13,70 @@
    <link href="../static/css/index.css" rel="stylesheet">
 
     <title>在线考试系统</title>
+    <style type="text/css">
+        .change_skin{
+            position:absolute;
+            right:100px;
+            top:20px;
+        }
 
+    /*
+
+        {
+            border-top:1px solid #fff;
+        }
+        */
+    </style>
+    <script type="text/javascript">
+        $(function(){
+            skin_flag = true;
+            $('.change_skin').click(function(){
+                if(skin_flag){
+                    $('.bg-light').css('cssText','background-color:rgb(60,63,65) !important');
+                    $('body').css('background-color','rgb(43,43,43)');
+                    $('h3').css('color','#F8F8FF');
+                    $('.bg_white').css('color','#f8f8ff');
+                    $('.title_bg').css('color','#000');
+                    $('.navbar-light .navbar-nav .nav-link').css('color','#f8f8ff');
+                    $('.table-primary, .table-primary>td, .table-primary>th').css('background-color','rgb(43,43,43)');
+                    $('.table-success, .table-success>td, .table-success>th').css('background-color','rgb(43,43,43)');
+                    $('.table-danger, .table-danger>td, .table-danger>th').css('background-color','rgb(43,43,43)');
+                    $('.table-warning, .table-warning>td, .table-warning>th').css('background-color','rgb(43,43,43)');
+                    $('.table-active, .table-active>td, .table-active>th').css('background-color','rgb(43,43,43)');
+                    $('.table td, .table th').css('border-top','1px solid #fff');
+                    $('.table').css('color','#fff');
+                    skin_flag = false;
+                }else{
+                    $('.nav-link').css('color','rgba(0,0,0,.5)');
+                    $('.bg-light').css('cssText','background-color:#f8f9fa !important');
+                    $('body').css('background-color','#fff');
+                    $('h3').css('color','rgba(0,0,0,.5)');
+                    $('.bg_white').css('color','#000');
+                    $('.title_bg').css('color','#000');
+                    $('.navbar-light .navbar-nav .nav-link').css('color','#000');
+                    $('.table-primary, .table-primary>td, .table-primary>th').css('background-color','#b8daff');
+                    $('.table-success, .table-success>td, .table-success>th').css('background-color','#c3e6cb');
+                    $('.table-danger, .table-danger>td, .table-danger>th').css('background-color','#f5c6cb');
+                    $('.table-warning, .table-warning>td, .table-warning>th').css('background-color','#ffeeba');
+                    $('.table-active, .table-active>td, .table-active>th').css('background-color','rgba(0,0,0,.075)');
+                    $('.table td, .table th').css('border-top','1px solid #fff');
+                    $('.table').css('color','#000');
+                    skin_flag = true;
+
+                }
+
+            })
+        });
+
+    </script>
 </head>
 <body>
-<div class="jumbotron text-center" style="margin-bottom:0">
-  <h1>在线考试系统</h1>
-  <p>全国第一的考试系统</p>
-</div>
 
 <nav class="navbar navbar-expand-sm bg-light navbar-light ">
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="/toIndex/">首页</a>
+            <a class="nav-link" href="/toIndex/"><h3>在线考试系统 首页</h3></a>
         </li>
-
 
 {#         <li class="nav-item active">#}
 {#            <a class="nav-link" href="/toLogin/">学生登陆</a>#}
@@ -37,19 +87,19 @@
 {#            <a class="nav-link" href="/admin/">教师登陆</a>#}
 {#            </li>#}
         <li>
-            <button data-target="#stuModal" data-toggle="modal" class="btn ">学生登陆</button>
+            <button data-target="#stuModal" data-toggle="modal" class="btn btn-primary">学生登陆</button>
         </li>
 
         <li>
-            <button data-target="#teaModal" data-toggle="modal" class="btn ">教师登陆</button>
+            <button data-target="#teaModal" data-toggle="modal" class="btn btn-primary">教师登陆</button>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="/admin">管理员</a>
+            <a class="nav-link" href="/admin" >管理员</a>
         </li>
-
-
-
+        <li>
+            <button class="change_skin">切换模式</button>
+        </li>
 
         <li style="position: fixed;right: 70px; font-size: 40px;color: #9fcdff">{{ student.name }}{{ message }}</li>
        <a href="/logout/"><li style="position: fixed;right: 20px; font-size: 20px;top:22px;color:#cc1313">退出</li></a>
@@ -57,13 +107,12 @@
     </ul>
 </nav>
 
-
 <div class="container">
 
   <br>
   <!-- Nav pills -->
   <ul class="nav nav-pills" role="tablist">
-      <li class="nav-item">
+    <li class="nav-item">
       <a class="nav-link active" data-toggle="pill" href="#home">个人信息</a>
     </li>
     <li class="nav-item">
@@ -72,59 +121,56 @@
     <li class="nav-item">
       <a class="nav-link" data-toggle="pill" href="#menu2">成绩查询</a>
     </li>
-
   </ul>
-
-
 
   <!-- Tab panes -->
   <div class="tab-content">
-      <div id="home" class="container tab-pane active"><br>
+    <div id="home" class="container tab-pane active"><br>
       <h3>个人信息</h3>
 
         <table class="table">
     <thead>
       <tr>
-        <th>属性</th>
-        <th>信息</th>
+        <th class="bg_white">属性</th>
+        <th class="bg_white">信息</th>
 
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>学号</td>
+        <td class="bg_white">学号</td>
         <td>{{ student.id }}</td>
 
       </tr>
       <tr class="table-primary">
-        <td>姓名</td>
+        <td class="bg_white">姓名</td>
         <td>{{ student.name }}</td>
 
       </tr>
       <tr class="table-success">
-        <td>性别</td>
+        <td class="bg_white">性别</td>
         <td>{{ student.sex }}</td>
 
       </tr>
       <tr class="table-danger">
-        <td>学院</td>
+        <td class="bg_white">学院</td>
         <td>{{ student.dept }}</td>
 
       </tr>
 
        <tr class="table-success">
-        <td>专业</td>
+        <td class="bg_white">专业</td>
         <td>{{ student.major }}</td>
 
       </tr>
 
       <tr class="table-warning">
-        <td>邮箱地址</td>
+        <td class="bg_white">邮箱地址</td>
         <td>{{ student.email }}</td>
 
       </tr>
       <tr class="table-active">
-        <td>出生日期</td>
+        <td class="bg_white">出生日期</td>
         <td>{{ student.birth }}</td>
 
       </tr>
@@ -132,7 +178,8 @@
     </tbody>
   </table>
     </div>
-      <div id="menu1" class="container tab-pane fade"><br>
+
+    <div id="menu1" class="container tab-pane fade"><br>
       <h3>考试信息</h3>
       <p></p>
         <table class="table">
@@ -146,9 +193,6 @@
       </tr>
     </thead>
     <tbody>
-
-
-
     {#   遍历字典  paper #}
     {% for paper1 in paper %}
 
@@ -170,7 +214,8 @@
     </tbody>
   </table>
     </div>
-      <div id="menu2" class="container tab-pane fade"><br>
+
+    <div id="menu2" class="container tab-pane fade"><br>
       <h3>考试成绩</h3>
       <p></p>
         <table class="table">
@@ -199,14 +244,8 @@
     </tbody>
   </table>
     </div>
-
-
-
-
   </div>
 </div>
-
-
 
 
 {#学生登录的模态对话框#}
@@ -286,16 +325,6 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div>
-
-<footer>
-    <div class="text-center" style="background: #0f0f0f">
-        <div class="row">
-            <div class="col-md-12">
-                <p>....</p>
-            </div>
-        </div>
-    </div>
-</footer>
 
 </body>
 
