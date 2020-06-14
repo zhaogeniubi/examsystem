@@ -16,12 +16,17 @@
 
 </head>
 <body>
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <h1>在线考试系统</h1>
+  <p>全国第一的考试系统</p>
+</div>
 
 <nav class="navbar navbar-expand-sm bg-light navbar-light ">
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="/toIndex/"><h3>在线考试系统 首页</h3></a>
+            <a class="nav-link" href="/toIndex/">首页</a>
         </li>
+
 
 {#         <li class="nav-item active">#}
 {#            <a class="nav-link" href="/toLogin/">学生登陆</a>#}
@@ -32,16 +37,18 @@
 {#            <a class="nav-link" href="/admin/">教师登陆</a>#}
 {#            </li>#}
         <li>
-            <button data-target="#stuModal" data-toggle="modal" class="btn btn-primary">学生登陆</button>
+            <button data-target="#stuModal" data-toggle="modal" class="btn ">学生登陆</button>
         </li>
 
         <li>
-            <button data-target="#teaModal" data-toggle="modal" class="btn btn-primary">教师登陆</button>
+            <button data-target="#teaModal" data-toggle="modal" class="btn ">教师登陆</button>
         </li>
 
         <li class="nav-item">
             <a class="nav-link" href="/admin">管理员</a>
         </li>
+
+
 
 
         <li style="position: fixed;right: 70px; font-size: 40px;color: #9fcdff">{{ student.name }}{{ message }}</li>
@@ -50,12 +57,13 @@
     </ul>
 </nav>
 
+
 <div class="container">
 
   <br>
   <!-- Nav pills -->
   <ul class="nav nav-pills" role="tablist">
-    <li class="nav-item">
+      <li class="nav-item">
       <a class="nav-link active" data-toggle="pill" href="#home">个人信息</a>
     </li>
     <li class="nav-item">
@@ -64,11 +72,14 @@
     <li class="nav-item">
       <a class="nav-link" data-toggle="pill" href="#menu2">成绩查询</a>
     </li>
+
   </ul>
+
+
 
   <!-- Tab panes -->
   <div class="tab-content">
-    <div id="home" class="container tab-pane active"><br>
+      <div id="home" class="container tab-pane active"><br>
       <h3>个人信息</h3>
 
         <table class="table">
@@ -121,8 +132,7 @@
     </tbody>
   </table>
     </div>
-
-    <div id="menu1" class="container tab-pane fade"><br>
+      <div id="menu1" class="container tab-pane fade"><br>
       <h3>考试信息</h3>
       <p></p>
         <table class="table">
@@ -136,6 +146,9 @@
       </tr>
     </thead>
     <tbody>
+
+
+
     {#   遍历字典  paper #}
     {% for paper1 in paper %}
 
@@ -157,8 +170,7 @@
     </tbody>
   </table>
     </div>
-
-    <div id="menu2" class="container tab-pane fade"><br>
+      <div id="menu2" class="container tab-pane fade"><br>
       <h3>考试成绩</h3>
       <p></p>
         <table class="table">
@@ -187,8 +199,14 @@
     </tbody>
   </table>
     </div>
+
+
+
+
   </div>
 </div>
+
+
 
 
 {#学生登录的模态对话框#}
@@ -268,6 +286,16 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div>
+
+<footer>
+    <div class="text-center" style="background: #0f0f0f">
+        <div class="row">
+            <div class="col-md-12">
+                <p>....</p>
+            </div>
+        </div>
+    </div>
+</footer>
 
 </body>
 
